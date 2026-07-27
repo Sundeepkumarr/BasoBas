@@ -1,0 +1,547 @@
+// Prisma Schema for Basobas Real Estate Marketplace
+// MongoDB as Primary Database
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+// ==========================================
+// ENUMS
+// ==========================================
+
+enum UserRole {
+  GUEST
+  BUYER
+  OWNER
+  ADMIN
+  STAFF
+}
+
+enum PropertyCategory {
+  LAND
+  HOUSE
+  APARTMENT
+  FLAT
+  ROOM_RENTAL
+  COMMERCIAL_BUILDING
+  OFFICE_SPACE
+  SHOP
+  HOSTEL
+  WAREHOUSE
+}
+
+enum PropertyStatus {
+  AVAILABLE
+  SOLD
+  RENTED
+  PENDING
+}
+
+enum PriceType {
+  SALE
+  RENT
+}
+
+enum VisitStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+  COMPLETED
+  CANCELLED
+}
+
+enum ReviewType {
+  PROPERTY
+  OWNER
+  COMPANY
+}
+
+enum NotificationType {
+  BOOKING
+  CHAT
+  VERIFICATION
+  FINANCE
+  SYSTEM
+}
+
+enum FinanceStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  IN_REVIEW
+}
+
+enum DocumentType {
+  CITIZENSHIP
+  LAND_CERTIFICATE
+  BLUEPRINT
+  TAX_CLEARANCE
+  OWNERSHIP_DEED
+  OTHER
+}
+
+// ==========================================
+// USER & PROFILE
+// ==========================================
+
+model User {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  email         String    @unique
+  phone         String?
+  password      String?
+  role          UserRole  @default(BUYER)
+  avatar        String?
+  isVerified    Boolean   @default(false)
+  isActive      Boolean   @default(true)
+  googleId      String?
+  lastLoginAt   DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deletedAt     DateTime?
+
+  // Relations
+  profile          UserProfile?
+  properties       Property[]
+  visitRequests    VisitRequest[]    @relation("visitor")
+  ownerVisits      VisitRequest[]    @relation("owner")
+  reviews          Review[]          @relation("reviewer")
+  receivedReviews  Review[]          @relation("reviewTarget")
+  wishlist         Wishlist[]
+  financeRequests  FinanceRequest[]
+  notifications    Notification[]
+  blogPosts        BlogPost[]
+  auditLogs        AuditLog[]
+
+
+  @@index([role])
+  @@index([createdAt])
+  @@map("users")
+}
+
+model UserProfile {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId          String   @unique @db.ObjectId
+  fullName        String
+  dateOfBirth     DateTime?
+  address         String?
+  district        String?
+  city            String?
+  municipality    String?
+  citizenshipNo   String?
+  panNo           String?
+  bio             String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_profiles")
+}
+
+// ==========================================
+// PROPERTY
+// ==========================================
+
+model Property {
+  id                String           @id @default(auto()) @map("_id") @db.ObjectId
+  ownerId           String           @db.ObjectId
+  title             String
+  slug              String           @unique
+  description       String
+  price             Float
+  priceType         PriceType        @default(SALE)
+  category          PropertyCategory
+  status            PropertyStatus   @default(AVAILABLE)
+  area              Float
+  areaUnit          String           @default("sq.ft")
+  bedrooms          Int?
+  bathrooms         Int?
+  floors            Int?
+  parking           Boolean          @default(false)
+  parkingSpaces     Int?
+  waterSupply       Boolean          @default(true)
+  roadAccess        Boolean          @default(true)
+  roadWidth         String?
+  facingDirection   String?
+  ownershipType     String?
+  builtYear         Int?
+  latitude          Float?
+  longitude         Float?
+  district          String
+  city              String
+  municipality      String?
+  ward              String?
+  streetAddress     String?
+  isVerified        Boolean          @default(false)
+  isApproved        Boolean          @default(false)
+  isFeatured        Boolean          @default(false)
+  viewCount         Int              @default(0)
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+  deletedAt         DateTime?
+
+  // Relations
+  owner             User               @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  images            PropertyImage[]
+  videos            PropertyVideo[]
+  documents         PropertyDocument[]
+  amenities         PropertyAmenity[]
+  visitRequests     VisitRequest[]
+  reviews           Review[]
+  wishlistedBy      Wishlist[]
+  financeRequests   FinanceRequest[]
+
+  @@index([ownerId])
+  @@index([category])
+  @@index([status])
+  @@index([priceType])
+  @@index([price])
+  @@index([district, city])
+  @@index([createdAt])
+  @@index([isApproved, status])
+  @@map("properties")
+}
+
+model PropertyImage {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  propertyId  String   @db.ObjectId
+  url         String
+  caption     String?
+  isPrimary   Boolean  @default(false)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@index([propertyId])
+  @@map("property_images")
+}
+
+model PropertyVideo {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  propertyId  String   @db.ObjectId
+  url         String
+  title       String?
+  createdAt   DateTime @default(now())
+
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@index([propertyId])
+  @@map("property_videos")
+}
+
+model PropertyDocument {
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  propertyId  String       @db.ObjectId
+  url         String
+  type        DocumentType
+  isVerified  Boolean      @default(false)
+  createdAt   DateTime     @default(now())
+
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@index([propertyId])
+  @@map("property_documents")
+}
+
+// ==========================================
+// CATEGORIES & AMENITIES
+// ==========================================
+
+model Category {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String   @unique
+  slug        String   @unique
+  icon        String?
+  description String?
+  createdAt   DateTime @default(now())
+
+  @@map("categories")
+}
+
+model Amenity {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String @unique
+  icon  String?
+
+  properties PropertyAmenity[]
+
+  @@map("amenities")
+}
+
+model PropertyAmenity {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  propertyId String   @db.ObjectId
+  amenityId  String   @db.ObjectId
+
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  amenity  Amenity  @relation(fields: [amenityId], references: [id], onDelete: Cascade)
+
+  @@unique([propertyId, amenityId])
+  @@map("property_amenities")
+}
+
+// ==========================================
+// VISITS
+// ==========================================
+
+model VisitRequest {
+  id             String      @id @default(auto()) @map("_id") @db.ObjectId
+  propertyId     String      @db.ObjectId
+  visitorId      String      @db.ObjectId
+  ownerId        String      @db.ObjectId
+  scheduledDate  DateTime
+  scheduledTime  String?
+  status         VisitStatus @default(PENDING)
+  message        String?
+  ownerNotes     String?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  visitor  User     @relation("visitor", fields: [visitorId], references: [id])
+  owner    User     @relation("owner", fields: [ownerId], references: [id])
+
+  @@index([propertyId])
+  @@index([visitorId])
+  @@index([ownerId])
+  @@index([status])
+  @@map("visit_requests")
+}
+
+// ==========================================
+// REVIEWS
+// ==========================================
+
+model Review {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  propertyId   String?    @db.ObjectId
+  reviewerId   String     @db.ObjectId
+  targetUserId String?    @db.ObjectId
+  rating       Int
+  comment      String?
+  type         ReviewType @default(PROPERTY)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  property Property? @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  reviewer User      @relation("reviewer", fields: [reviewerId], references: [id])
+  target   User?     @relation("reviewTarget", fields: [targetUserId], references: [id])
+
+  @@index([propertyId])
+  @@index([reviewerId])
+  @@index([targetUserId])
+  @@map("reviews")
+}
+
+// ==========================================
+// WISHLIST
+// ==========================================
+
+model Wishlist {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String   @db.ObjectId
+  propertyId  String   @db.ObjectId
+  createdAt   DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, propertyId])
+  @@map("wishlists")
+}
+
+// ==========================================
+// FINANCE
+// ==========================================
+
+model FinanceRequest {
+  id               String        @id @default(auto()) @map("_id") @db.ObjectId
+  userId           String        @db.ObjectId
+  propertyId       String?       @db.ObjectId
+  loanAmount       Float
+  monthlyIncome    Float?
+  employmentType   String?
+  employerName     String?
+  status           FinanceStatus @default(PENDING)
+  notes            String?
+  adminNotes       String?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  user     User      @relation(fields: [userId], references: [id])
+  property Property? @relation(fields: [propertyId], references: [id])
+
+  @@index([userId])
+  @@index([status])
+  @@map("finance_requests")
+}
+
+// ==========================================
+// LEGAL DOCUMENTS
+// ==========================================
+
+model LegalDocument {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  propertyId  String?  @db.ObjectId
+  userId      String   @db.ObjectId
+  type        String
+  url         String
+  status      String   @default("PENDING")
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId])
+  @@map("legal_documents")
+}
+
+// ==========================================
+// COMPANY SERVICES
+// ==========================================
+
+model CompanyService {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  slug        String   @unique
+  description String
+  icon        String?
+  price       Float?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("company_services")
+}
+
+// ==========================================
+// BLOG
+// ==========================================
+
+model BlogPost {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  authorId    String   @db.ObjectId
+  title       String
+  slug        String   @unique
+  content     String
+  excerpt     String?
+  coverImage  String?
+  tags        String[]
+  isPublished Boolean  @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  author User @relation(fields: [authorId], references: [id])
+
+
+  @@index([isPublished])
+  @@map("blog_posts")
+}
+
+// ==========================================
+// FAQ
+// ==========================================
+
+model FAQ {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  question  String
+  answer    String
+  category  String?
+  order     Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  @@map("faqs")
+}
+
+// ==========================================
+// NOTIFICATIONS
+// ==========================================
+
+model Notification {
+  id        String           @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String           @db.ObjectId
+  title     String
+  message   String
+  type      NotificationType @default(SYSTEM)
+  isRead    Boolean          @default(false)
+  link      String?
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([isRead])
+  @@index([createdAt])
+  @@map("notifications")
+}
+
+// ==========================================
+// AUDIT LOGS
+// ==========================================
+
+model AuditLog {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String?  @db.ObjectId
+  action    String
+  entity    String
+  entityId  String?  @db.ObjectId
+  metadata  Json?
+  ipAddress String?
+  createdAt DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([entity, entityId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+// ==========================================
+// CHAT & MESSAGING
+// ==========================================
+
+model Chat {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  participants  String[]  @db.ObjectId
+  propertyId    String?   @db.ObjectId
+  lastMessage   String?
+  lastMessageAt DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  messages      Message[]
+
+  @@index([participants])
+  @@index([updatedAt])
+  @@map("chats")
+}
+
+model Message {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  chatId    String   @db.ObjectId
+  senderId  String   @db.ObjectId
+  content   String
+  type      String   @default("TEXT") // TEXT, IMAGE, FILE
+  fileName  String?
+  fileUrl   String?
+  isRead    Boolean  @default(false)
+  seenAt    DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  chat      Chat     @relation(fields: [chatId], references: [id], onDelete: Cascade)
+
+  @@index([chatId])
+  @@index([createdAt])
+  @@map("messages")
+}
+

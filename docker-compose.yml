@@ -1,0 +1,89 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: basobas-postgres
+    restart: unless-stopped
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: basobas
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - basobas-network
+
+  # MongoDB Database
+  mongodb:
+    image: mongo:7
+    container_name: basobas-mongodb
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - basobas-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: basobas-redis
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    networks:
+      - basobas-network
+
+  # Backend Server
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: basobas-server
+    restart: unless-stopped
+    ports:
+      - '5000:5000'
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/basobas?schema=public
+      MONGODB_URI: mongodb://mongodb:27017/basobas
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      - postgres
+      - mongodb
+      - redis
+    volumes:
+      - ./server/uploads:/app/uploads
+    networks:
+      - basobas-network
+
+  # Frontend Client
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: basobas-client
+    restart: unless-stopped
+    ports:
+      - '3000:80'
+    depends_on:
+      - server
+    networks:
+      - basobas-network
+
+volumes:
+  postgres_data:
+  mongo_data:
+  redis_data:
+
+networks:
+  basobas-network:
+    driver: bridge
