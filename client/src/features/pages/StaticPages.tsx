@@ -16,7 +16,7 @@ export function AboutPage() {
       <section className="section-padding bg-gradient-hero text-white text-center">
         <div className="container-custom">
           <motion.h1 initial={{ opacity:0,y:20 }} animate={{ opacity:1,y:0 }} className="text-4xl md:text-5xl font-bold mb-4">About Basobas</motion.h1>
-          <motion.p initial={{ opacity:0,y:20 }} animate={{ opacity:1,y:0 }} transition={{ delay:0.1 }} className="text-xl text-white/70 max-w-2xl mx-auto">
+          <motion.p initial={{ opacity:0,y:20 }} animate={{ opacity:1,y:0 }} transition={{ delay:0.1 }} className="text-xl text-white/85 max-w-2xl mx-auto">
             Organizing Nepal's unorganized real estate market through technology, trust, and transparency.
           </motion.p>
         </div>
@@ -77,7 +77,7 @@ export function ServicesPage() {
       <section className="section-padding bg-gradient-hero text-white text-center">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
-          <p className="text-xl text-white/70 max-w-xl mx-auto">Comprehensive support for every step of your property journey</p>
+          <p className="text-xl text-white/85 max-w-xl mx-auto">Comprehensive support for every step of your property journey</p>
         </div>
       </section>
       <section className="section-padding">

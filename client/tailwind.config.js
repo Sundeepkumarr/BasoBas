@@ -5,18 +5,18 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#fff7ed',
-          100: '#ffedd5',
-          200: '#fed7aa',
-          300: '#fdba74',
-          400: '#fb923c',
-          500: '#f97316',
-          600: '#ea580c',
-          700: '#c2410c', // Darker Saffron
-          800: '#9a3412',
-          900: '#7c2d12',
-          950: '#431407',
-          DEFAULT: '#f97316', // Saffron Default
+          50: '#f8fbff',
+          100: '#eaf3ff',
+          200: '#d5e8ff',
+          300: '#b8d4ff',
+          400: '#8fbaff',
+          500: '#5b8cff',
+          600: '#3b6df6',
+          700: '#2954d9',
+          800: '#2142a8',
+          900: '#203a84',
+          950: '#18295a',
+          DEFAULT: '#3b6df6',
         },
         accent: {
           50: '#f8fafc',
@@ -26,10 +26,10 @@ export default {
           400: '#94a3b8',
           500: '#64748b',
           600: '#475569',
-          700: '#334155', // Slate Accent
+          700: '#334155',
           800: '#1e293b',
           900: '#0f172a',
-          DEFAULT: '#334155',
+          DEFAULT: '#2563eb',
         },
         success: {
           DEFAULT: '#16A34A',
@@ -56,10 +56,10 @@ export default {
         'card-hover': '0 4px 12px rgba(0,0,0,0.1), 0 16px 32px rgba(0,0,0,0.08)',
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #ea580c 0%, #f97316 100%)',
-        'gradient-dark': 'linear-gradient(135deg, #7c2d12 0%, #ea580c 100%)',
-        'gradient-hero': 'linear-gradient(135deg, #7c2d12 0%, #c2410c 50%, #ea580c 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #334155 0%, #475569 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #ffffff 0%, #dbeafe 100%)',
+        'gradient-dark': 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)',
+        'gradient-hero': 'linear-gradient(135deg, #f8fbff 0%, #dbeafe 45%, #60a5fa 100%)',
+        'gradient-accent': 'linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',

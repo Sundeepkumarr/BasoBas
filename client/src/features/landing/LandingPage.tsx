@@ -28,7 +28,7 @@ export default function LandingPage() {
   return (
     <div className="overflow-hidden">
       {/* ============================== HERO ============================== */}
-      <section className="relative min-h-[92vh] flex items-center bg-gradient-hero text-white">
+      <section className="relative min-h-[92vh] flex items-center bg-[linear-gradient(135deg,#f8fbff_0%,#eaf3ff_45%,#bfdbfe_100%)] text-slate-800">
         {/* Decorative elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 right-10 w-96 h-96 rounded-full bg-primary-500/10 blur-3xl animate-float" />
@@ -39,16 +39,16 @@ export default function LandingPage() {
         <div className="container-custom relative z-10 py-20">
           <div className="max-w-3xl">
             <motion.div initial="hidden" animate="visible" variants={stagger}>
-              <motion.span variants={fadeUp} custom={0} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-sm text-white/90 mb-6">
+              <motion.span variants={fadeUp} custom={0} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 backdrop-blur-sm border border-white/70 text-sm text-slate-700 mb-6 shadow-sm">
                 🏠 Nepal's #1 Digital Real Estate Marketplace
               </motion.span>
 
-              <motion.h1 variants={fadeUp} custom={1} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6">
+              <motion.h1 variants={fadeUp} custom={1} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6 text-slate-900">
                 Find Your Dream<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-accent">Property</span> in Nepal
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-700 to-primary-500">Property</span> in Nepal
               </motion.h1>
 
-              <motion.p variants={fadeUp} custom={2} className="text-lg md:text-xl text-white/70 max-w-xl mb-8 leading-relaxed">
+              <motion.p variants={fadeUp} custom={2} className="text-lg md:text-xl text-slate-600 max-w-xl mb-8 leading-relaxed">
                 Connect directly with property owners. No middlemen, no hidden fees. Just verified properties and trusted transactions.
               </motion.p>
 
@@ -61,10 +61,10 @@ export default function LandingPage() {
                     placeholder="Search by location, property type..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 shadow-soft-lg"
+                    className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white text-gray-800 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 shadow-soft-lg border border-slate-200"
                   />
                 </div>
-                <button type="submit" className="px-8 py-4 rounded-2xl bg-accent hover:bg-accent-600 text-white font-semibold transition-all hover:shadow-lg active:scale-[0.98]">
+                <button type="submit" className="px-8 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-semibold transition-all hover:shadow-lg active:scale-[0.98]">
                   Search
                 </button>
               </motion.form>
@@ -78,8 +78,8 @@ export default function LandingPage() {
                   { value: '25+', label: 'Cities' },
                 ].map((stat) => (
                   <div key={stat.label}>
-                    <p className="text-2xl md:text-3xl font-bold text-white">{stat.value}</p>
-                    <p className="text-xs text-white/50 mt-0.5">{stat.label}</p>
+                    <p className="text-2xl md:text-3xl font-bold text-slate-900">{stat.value}</p>
+                    <p className="text-xs text-slate-600 mt-0.5">{stat.label}</p>
                   </div>
                 ))}
               </motion.div>
@@ -115,7 +115,7 @@ export default function LandingPage() {
       </section>
 
       {/* ============================== FEATURED PROPERTIES ============================== */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-[#f7f3eb]">
         <div className="container-custom">
           <div className="flex items-end justify-between mb-10">
             <div>
@@ -177,11 +177,11 @@ export default function LandingPage() {
       </section>
 
       {/* ============================== WHY CHOOSE US ============================== */}
-      <section className="section-padding bg-gradient-hero text-white">
+      <section className="section-padding bg-[linear-gradient(135deg,#1e3a8a_0%,#2563eb_50%,#3b82f6_100%)] text-white">
         <div className="container-custom">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold">Why Choose Basobas?</h2>
-            <p className="text-white/60 mt-3 max-w-xl mx-auto">
+            <p className="text-white/85 mt-3 max-w-xl mx-auto">
               We're not just a marketplace — we're your trusted partner in every step of your property journey.
             </p>
           </div>
@@ -207,7 +207,7 @@ export default function LandingPage() {
                   {item.icon}
                 </div>
                 <h3 className="text-base font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-white/80 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -242,7 +242,7 @@ export default function LandingPage() {
       </section>
 
       {/* ============================== TESTIMONIALS ============================== */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-[#f7f3eb]">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="section-title">What Our Customers Say</h2>
@@ -315,17 +315,17 @@ export default function LandingPage() {
       </section>
 
       {/* ============================== CTA ============================== */}
-      <section className="py-20 bg-gradient-primary">
+      <section className="py-20 bg-[linear-gradient(135deg,#ffffff_0%,#dbeafe_100%)]">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Find Your Perfect Property?</h2>
-          <p className="text-white/70 max-w-xl mx-auto mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Ready to Find Your Perfect Property?</h2>
+          <p className="text-slate-700 max-w-xl mx-auto mb-8">
             Join thousands of satisfied customers who found their dream property through Basobas.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/properties" className="btn bg-white text-primary-700 hover:bg-gray-50 btn-lg font-semibold">
               Browse Properties
             </Link>
-            <Link to="/auth/register" className="btn border-2 border-white/30 text-white hover:bg-white/10 btn-lg">
+            <Link to="/auth/register" className="btn border-2 border-slate-300 text-slate-800 hover:bg-slate-100 btn-lg">
               List Your Property
             </Link>
           </div>
