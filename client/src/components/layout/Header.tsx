@@ -66,11 +66,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-16 md:h-[68px]">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
-              <img
-                src="/basobas-logo.svg"
-                alt="Basobas"
-                className="w-11 h-11 object-contain drop-shadow-sm transition-transform group-hover:scale-[1.02]"
-              />
+              <img src="/basobas-logo.svg" alt="Basobas" className="w-11 h-11 object-contain" />
               <span className="text-xl font-bold text-gray-900 tracking-tight">
                 Baso<span className="text-primary-700">bas</span>
               </span>
