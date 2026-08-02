@@ -3,7 +3,7 @@ services:
     runtime: node
     name: basobas-api
     plan: free
-    buildCommand: cd server && npm install && npm run db:generate && npm run build
+    buildCommand: cd client && npm install && npm run build && cd ../server && npm install && npm run db:generate && npm run build
     preDeployCommand: cd server && npx prisma migrate deploy
     startCommand: cd server && npm start
     healthCheckPath: /api/health
