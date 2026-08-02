@@ -70,6 +70,12 @@ if (!fs.existsSync(uploadsDir)) {
 }
 app.use('/uploads', express.static(uploadsDir));
 
+// Serve frontend build when present
+const clientDistPath = path.resolve(__dirname, '../../client/dist');
+if (fs.existsSync(clientDistPath)) {
+  app.use(express.static(clientDistPath));
+}
+
 // ==========================================
 // ROUTES
 // ==========================================
@@ -90,8 +96,19 @@ app.use('/api/blog', blogRoutes);
 app.use('/api/admin', adminRoutes);
 
 // 404 handler
-app.use((_req, res) => {
-  res.status(404).json({ success: false, message: 'Route not found' });
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    res.status(404).json({ success: false, message: 'Route not found' });
+    return;
+  }
+
+  const indexPath = path.resolve(__dirname, '../../client/dist/index.html');
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+    return;
+  }
+
+  next();
 });
 
 // Global error handler
