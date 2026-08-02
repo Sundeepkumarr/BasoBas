@@ -68,7 +68,8 @@ export const getProperties = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const getPropertyById = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
 
   const property = await prisma.property.findUnique({
     where: { id, deletedAt: null },
@@ -115,7 +116,7 @@ export const createProperty = catchAsync(async (req: Request, res: Response) => 
       amenities: amenityIds?.length
         ? { create: amenityIds.map((id) => ({ amenityId: id })) }
         : undefined,
-    },
+    } as any,
     include: { images: true, amenities: { include: { amenity: true } } },
   });
 
@@ -127,7 +128,8 @@ export const createProperty = catchAsync(async (req: Request, res: Response) => 
 });
 
 export const updateProperty = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
   const data = req.body;
   const userId = req.user!.userId;
 
@@ -149,7 +151,8 @@ export const updateProperty = catchAsync(async (req: Request, res: Response) => 
 });
 
 export const deleteProperty = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
   const userId = req.user!.userId;
 
   const existing = await prisma.property.findUnique({ where: { id } });
@@ -202,7 +205,8 @@ export const getOwnerProperties = catchAsync(async (req: Request, res: Response)
 });
 
 export const uploadPropertyImages = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
   const files = req.files as Express.Multer.File[];
 
   if (!files?.length) {

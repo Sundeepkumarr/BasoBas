@@ -15,7 +15,8 @@ export const createReview = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const getPropertyReviews = catchAsync(async (req: Request, res: Response) => {
-  const { propertyId } = req.params;
+  const propertyId = Array.isArray(req.params.propertyId) ? req.params.propertyId[0] : req.params.propertyId;
+  if (!propertyId) throw AppError.badRequest('Missing propertyId');
   const { page, limit } = req.query as any;
   const { skip, take } = paginationHelper(page, limit);
 
@@ -46,7 +47,8 @@ export const getPropertyReviews = catchAsync(async (req: Request, res: Response)
 });
 
 export const getUserReviews = catchAsync(async (req: Request, res: Response) => {
-  const { userId } = req.params;
+  const userId = Array.isArray(req.params.userId) ? req.params.userId[0] : req.params.userId;
+  if (!userId) throw AppError.badRequest('Missing userId');
   const reviews = await prisma.review.findMany({
     where: { targetUserId: userId },
     orderBy: { createdAt: 'desc' },
@@ -57,7 +59,8 @@ export const getUserReviews = catchAsync(async (req: Request, res: Response) => 
 });
 
 export const deleteReview = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
   const userId = req.user!.userId;
 
   const review = await prisma.review.findUnique({ where: { id } });

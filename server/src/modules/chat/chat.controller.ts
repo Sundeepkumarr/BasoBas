@@ -39,7 +39,8 @@ export const createChat = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const getMessages = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
   const userId = req.user!.userId;
   const page = parseInt(req.query.page as string) || 1;
   const limit = parseInt(req.query.limit as string) || 50;
@@ -72,7 +73,8 @@ export const getMessages = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const sendMessage = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
   const userId = req.user!.userId;
   const { content, type } = req.body;
 

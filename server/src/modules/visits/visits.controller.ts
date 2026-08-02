@@ -61,7 +61,8 @@ export const getVisits = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const updateVisitStatus = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
   const { status } = req.body;
   const userId = req.user!.userId;
 

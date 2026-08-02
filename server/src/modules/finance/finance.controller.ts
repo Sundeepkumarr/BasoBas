@@ -33,7 +33,8 @@ export const getFinanceRequests = catchAsync(async (req: Request, res: Response)
 });
 
 export const updateFinanceStatus = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
   const { status, adminNotes } = req.body;
 
   const request = await prisma.financeRequest.update({

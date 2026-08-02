@@ -25,7 +25,8 @@ export const getBlogPosts = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const getBlogPost = catchAsync(async (req: Request, res: Response) => {
-  const { slug } = req.params;
+  const slug = Array.isArray(req.params.slug) ? req.params.slug[0] : req.params.slug;
+  if (!slug) throw AppError.badRequest('Missing slug');
   const post = await prisma.blogPost.findUnique({
     where: { slug },
     include: { author: { include: { profile: true } } },

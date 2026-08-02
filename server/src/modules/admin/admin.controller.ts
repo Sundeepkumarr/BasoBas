@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import prisma from '../../config/database';
-import { catchAsync, paginationHelper, buildPaginationMeta } from '../../utils';
+import { catchAsync, paginationHelper, buildPaginationMeta, AppError } from '../../utils';
 
 export const getDashboardStats = catchAsync(async (_req: Request, res: Response) => {
   const [totalUsers, totalProperties, pendingApprovals, totalVisits, totalReviews, totalFinanceRequests] = await Promise.all([
@@ -86,7 +86,8 @@ export const getAllProperties = catchAsync(async (req: Request, res: Response) =
 });
 
 export const approveProperty = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
   const property = await prisma.property.update({
     where: { id },
     data: { isApproved: true },
@@ -95,7 +96,8 @@ export const approveProperty = catchAsync(async (req: Request, res: Response) =>
 });
 
 export const rejectProperty = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
   const property = await prisma.property.update({
     where: { id },
     data: { isApproved: false, status: 'PENDING' },
@@ -104,7 +106,8 @@ export const rejectProperty = catchAsync(async (req: Request, res: Response) => 
 });
 
 export const toggleUserStatus = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
   const user = await prisma.user.findUnique({ where: { id } });
   if (!user) { res.status(404).json({ success: false, message: 'User not found' }); return; }
 
@@ -117,7 +120,8 @@ export const toggleUserStatus = catchAsync(async (req: Request, res: Response) =
 });
 
 export const verifyUser = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
   const user = await prisma.user.update({
     where: { id },
     data: { isVerified: true },

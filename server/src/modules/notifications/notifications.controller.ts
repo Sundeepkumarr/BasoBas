@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import prisma from '../../config/database';
-import { catchAsync, paginationHelper, buildPaginationMeta } from '../../utils';
+import { catchAsync, paginationHelper, buildPaginationMeta, AppError } from '../../utils';
 
 export const getNotifications = catchAsync(async (req: Request, res: Response) => {
   const userId = req.user!.userId;
@@ -27,7 +27,8 @@ export const getNotifications = catchAsync(async (req: Request, res: Response) =
 });
 
 export const markAsRead = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  if (!id) throw AppError.badRequest('Missing id');
   await prisma.notification.update({ where: { id }, data: { isRead: true } });
   res.json({ success: true, message: 'Notification marked as read' });
 });
