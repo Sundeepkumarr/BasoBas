@@ -96,38 +96,13 @@ app.use('/api/blog', blogRoutes);
 app.use('/api/admin', adminRoutes);
 
 // 404 handler
-app.use((req, res, next) => {
+app.use((req, res) => {
   if (req.path.startsWith('/api')) {
     res.status(404).json({ success: false, message: 'Route not found' });
     return;
   }
 
-  const indexPath = path.resolve(__dirname, '../../client/dist/index.html');
-  if (fs.existsSync(indexPath)) {
-    res.sendFile(indexPath);
-    return;
-  }
-
-  res.type('html').send(`<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Basobas</title>
-    <style>
-      body { font-family: Arial, sans-serif; margin: 0; padding: 2rem; background: #f8fafc; color: #0f172a; }
-      .card { max-width: 720px; margin: 3rem auto; background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
-      a { color: #2563eb; }
-    </style>
-  </head>
-  <body>
-    <div class="card">
-      <h1>Basobas is live</h1>
-      <p>The app is running, but the frontend bundle is still being finalized on the hosting platform.</p>
-      <p>Please wait for the latest deployment to complete, or check the API health endpoint at <a href="/api/health">/api/health</a>.</p>
-    </div>
-  </body>
-</html>`);
+  res.status(404).json({ success: false, message: 'This backend serves API routes only. Use the frontend service for the app UI.' });
 });
 
 // Global error handler
