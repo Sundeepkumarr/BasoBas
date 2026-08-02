@@ -3,7 +3,7 @@ services:
     runtime: node
     name: basobas-app
     plan: free
-    buildCommand: npm install && npm run build && mkdir -p server/client && rm -rf server/client/dist && cp -r client/dist server/client/
+    buildCommand: npm install && npm run build
     startCommand: cd server && npm start
     healthCheckPath: /api/health
     envVars:

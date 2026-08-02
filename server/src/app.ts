@@ -71,8 +71,14 @@ if (!fs.existsSync(uploadsDir)) {
 app.use('/uploads', express.static(uploadsDir));
 
 // Serve frontend build when present
-const clientDistPath = path.resolve(__dirname, '../../client/dist');
-if (fs.existsSync(clientDistPath)) {
+const clientDistPaths = [
+  path.resolve(process.cwd(), '../client/dist'),
+  path.resolve(__dirname, '../../client/dist'),
+  path.resolve(__dirname, '../client/dist'),
+];
+
+const clientDistPath = clientDistPaths.find((candidate) => fs.existsSync(candidate));
+if (clientDistPath) {
   app.use(express.static(clientDistPath));
 }
 
@@ -102,8 +108,8 @@ app.use((req, res, next) => {
     return;
   }
 
-  const indexPath = path.resolve(__dirname, '../../client/dist/index.html');
-  if (fs.existsSync(indexPath)) {
+  const indexPath = clientDistPath ? path.join(clientDistPath, 'index.html') : null;
+  if (indexPath && fs.existsSync(indexPath)) {
     res.sendFile(indexPath);
     return;
   }
