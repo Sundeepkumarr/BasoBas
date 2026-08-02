@@ -1,9 +1,11 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+const normalizeOrigin = (url: string) => url.trim().replace(/\/+$/, '');
+
 const clientUrls = (process.env.CLIENT_URL || 'http://localhost:5173')
   .split(',')
-  .map((url) => url.trim())
+  .map(normalizeOrigin)
   .filter(Boolean);
 
 export const config = {

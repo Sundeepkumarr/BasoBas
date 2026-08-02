@@ -24,6 +24,7 @@ import blogRoutes from './modules/blog/blog.routes';
 import adminRoutes from './modules/admin/admin.routes';
 
 const app = express();
+const normalizeOrigin = (origin: string) => origin.trim().replace(/\/+$/, '');
 
 // ==========================================
 // MIDDLEWARE
@@ -31,15 +32,29 @@ const app = express();
 
 // Security
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (!origin) {
+    next();
+    return;
+  }
+
+  if (req.method === 'OPTIONS' && !config.clientUrls.includes(normalizeOrigin(origin))) {
+    res.status(403).json({ success: false, message: 'CORS origin denied' });
+    return;
+  }
+
+  next();
+});
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || config.clientUrls.includes(origin)) {
+      if (!origin || config.clientUrls.includes(normalizeOrigin(origin))) {
         callback(null, true);
         return;
       }
 
-      callback(new Error(`CORS blocked for origin: ${origin}`));
+      callback(null, false);
     },
     credentials: true,
   })
