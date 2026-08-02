@@ -31,7 +31,19 @@ const app = express();
 
 // Security
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
-app.use(cors({ origin: config.clientUrl, credentials: true }));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || config.clientUrls.includes(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error(`CORS blocked for origin: ${origin}`));
+    },
+    credentials: true,
+  })
+);
 
 // Rate limiting
 const limiter = rateLimit({

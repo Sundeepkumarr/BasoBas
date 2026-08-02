@@ -1,10 +1,16 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+const clientUrls = (process.env.CLIENT_URL || 'http://localhost:5173')
+  .split(',')
+  .map((url) => url.trim())
+  .filter(Boolean);
+
 export const config = {
   env: process.env.NODE_ENV || 'development',
   port: parseInt(process.env.PORT || '5000', 10),
-  clientUrl: process.env.CLIENT_URL || 'http://localhost:5173',
+  clientUrls,
+  clientUrl: clientUrls[0] || 'http://localhost:5173',
 
   // PostgreSQL
   databaseUrl: process.env.DATABASE_URL || '',
