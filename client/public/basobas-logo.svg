@@ -1,11 +1,12 @@
-<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" fill="white"/>
-  <g transform="translate(112 76)" stroke="#2A4570" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none">
-    <path d="M36 118L144 32L252 118"/>
-    <path d="M82 92V238"/>
-    <path d="M228 92V60H256V118"/>
-    <path d="M118 86H154C183 86 204 107 204 136C204 159 191 177 172 184C193 191 208 209 208 233C208 263 185 284 154 284H118V86Z"/>
-    <path d="M118 181H157C184 181 204 200 204 224C204 248 185 266 157 266H118V181Z"/>
+<svg width="1152" height="768" viewBox="0 0 1152 768" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1152" height="768" fill="white"/>
+  <g transform="translate(374 120)" stroke="#2A4570" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M0 160L200 14L400 160"/>
+    <path d="M150 160V344"/>
+    <path d="M300 160V78H334V160"/>
+    <path d="M172 118H248C296 118 332 154 332 202C332 238 311 265 278 279C315 292 340 323 340 360C340 419 295 460 236 460H172V118Z"/>
+    <path d="M172 282H248C286 282 314 310 314 348C314 386 286 414 248 414H172V282Z"/>
+    <path d="M104 196V348"/>
   </g>
-  <text x="256" y="412" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="78" fill="#2A4570">Basobas</text>
+  <text x="576" y="648" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="126" font-weight="400" fill="#2A4570">Basobas</text>
 </svg>
