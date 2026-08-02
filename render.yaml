@@ -2,11 +2,10 @@ services:
   - type: web
     runtime: node
     name: basobas-api
-    rootDir: server
     plan: free
-    buildCommand: npm ci && npm run db:generate && npm run build
-    preDeployCommand: npx prisma migrate deploy
-    startCommand: npm run start
+    buildCommand: cd server && npm install && npm run db:generate && npm run build
+    preDeployCommand: cd server && npx prisma migrate deploy
+    startCommand: cd server && npm start
     healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
