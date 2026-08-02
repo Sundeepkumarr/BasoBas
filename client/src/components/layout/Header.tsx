@@ -66,7 +66,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-16 md:h-[68px]">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
-              <img src="/basobas.png" alt="Basobas" className="w-11 h-11 object-contain" />
+              <img src="/basobas-logo.svg" alt="Basobas" className="w-11 h-11 object-contain" />
               <span className="text-xl font-bold text-gray-900 tracking-tight">
                 Baso<span className="text-primary-700">bas</span>
               </span>
@@ -239,7 +239,7 @@ export default function Header() {
               {/* Mobile Menu Header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
                 <Link to="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-                  <img src="/basobas.png" alt="Basobas" className="w-8 h-8 object-contain" />
+                  <img src="/basobas-logo.svg" alt="Basobas" className="w-8 h-8 object-contain" />
                   <span className="font-bold text-gray-900">Basobas</span>
                 </Link>
                 <button onClick={() => setIsOpen(false)} className="p-2 rounded-xl hover:bg-gray-100">

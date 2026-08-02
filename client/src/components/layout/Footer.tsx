@@ -34,7 +34,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <img src="/basobas.png" alt="Basobas" className="w-10 h-10 object-contain" />
+              <img src="/basobas-logo.svg" alt="Basobas" className="w-10 h-10 object-contain" />
               <span className="text-2xl font-bold text-white">
                 Baso<span className="text-primary-400">bas</span>
               </span>

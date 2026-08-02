@@ -1,6 +1,6 @@
 <svg width="1152" height="768" viewBox="0 0 1152 768" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1152" height="768" fill="#FCFBF8"/>
-  <g transform="translate(424 100)" stroke="#2F4A73" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
+  <rect width="1152" height="768" fill="#000000"/>
+  <g transform="translate(424 100)" stroke="#DDE8F7" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
     <path d="M0 152L152 28L304 152"/>
     <path d="M112 156V340"/>
     <path d="M260 156V78H288V132"/>
@@ -8,5 +8,5 @@
     <path d="M124 271H186C223 271 251 297 251 334C251 369 224 395 186 395H124V271Z"/>
     <path d="M80 198V340"/>
   </g>
-  <text x="576" y="568" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="112" font-weight="400" fill="#2F4A73">Basobas</text>
+  <text x="576" y="568" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="112" font-weight="400" fill="#DDE8F7">Basobas</text>
 </svg>
