@@ -96,13 +96,19 @@ app.use('/api/blog', blogRoutes);
 app.use('/api/admin', adminRoutes);
 
 // 404 handler
-app.use((req, res) => {
+app.use((req, res, next) => {
   if (req.path.startsWith('/api')) {
     res.status(404).json({ success: false, message: 'Route not found' });
     return;
   }
 
-  res.status(404).json({ success: false, message: 'This backend serves API routes only. Use the frontend service for the app UI.' });
+  const indexPath = path.resolve(__dirname, '../../client/dist/index.html');
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+    return;
+  }
+
+  next();
 });
 
 // Global error handler

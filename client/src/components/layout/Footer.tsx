@@ -33,10 +33,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center">
-                <span className="text-white font-bold text-xl">B</span>
-              </div>
+            <Link to="/" className="flex items-center gap-3 mb-4">
+              <img src="/basobas-logo.svg" alt="Basobas" className="w-10 h-10 object-contain" />
               <span className="text-2xl font-bold text-white">
                 Baso<span className="text-primary-400">bas</span>
               </span>
