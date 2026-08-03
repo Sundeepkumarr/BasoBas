@@ -54,9 +54,9 @@ export function LoginPage() {
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 mb-6">
             <img src="/hamro-awas-icon.png" alt="Hamro Awas Icon" className="w-10 h-10 object-contain" />
-            <span className="text-2xl font-bold text-gray-900">Hamro <span className="text-primary-700">Awas</span></span>
+            <span className="text-2xl font-bold text-accent-900">Hamro <span className="text-primary-500">Awas</span></span>
           </Link>
-          <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>
+          <h1 className="text-2xl font-bold text-accent-900">Welcome back</h1>
           <p className="text-sm text-gray-500 mt-1">Sign in to your account to continue</p>
         </div>
 
@@ -98,10 +98,10 @@ export function LoginPage() {
             </div>
             <div className="flex items-center justify-between">
               <label className="flex items-center gap-2 text-sm text-gray-600">
-                <input type="checkbox" className="rounded border-gray-300 text-primary-700 focus:ring-primary-500" />
+                <input type="checkbox" className="rounded border-gray-300 text-primary-500 focus:ring-primary-500" />
                 Remember me
               </label>
-              <Link to="/auth/forgot-password" className="text-sm text-primary-700 hover:text-primary-800 font-medium">Forgot password?</Link>
+              <Link to="/auth/forgot-password" className="text-sm text-primary-500 hover:text-primary-800 font-medium">Forgot password?</Link>
             </div>
             <button type="submit" disabled={isLoading} className="btn-primary w-full btn-lg">
               {isLoading ? 'Signing in...' : 'Sign In'}
@@ -110,7 +110,7 @@ export function LoginPage() {
         </div>
 
         <p className="text-center text-sm text-gray-500 mt-6">
-          Don't have an account? <Link to="/auth/register" className="text-primary-700 font-medium hover:text-primary-800">Create account</Link>
+          Don't have an account? <Link to="/auth/register" className="text-primary-500 font-medium hover:text-primary-800">Create account</Link>
         </p>
       </motion.div>
     </div>
@@ -153,9 +153,9 @@ export function RegisterPage() {
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 mb-6">
             <img src="/hamro-awas-icon.png" alt="Hamro Awas Icon" className="w-10 h-10 object-contain" />
-            <span className="text-2xl font-bold text-gray-900">Hamro <span className="text-primary-700">Awas</span></span>
+            <span className="text-2xl font-bold text-accent-900">Hamro <span className="text-primary-500">Awas</span></span>
           </Link>
-          <h1 className="text-2xl font-bold text-gray-900">Create your account</h1>
+          <h1 className="text-2xl font-bold text-accent-900">Create your account</h1>
           <p className="text-sm text-gray-500 mt-1">Join Hamro Awas and find your dream property</p>
         </div>
 
@@ -222,7 +222,7 @@ export function RegisterPage() {
         </div>
 
         <p className="text-center text-sm text-gray-500 mt-6">
-          Already have an account? <Link to="/auth/login" className="text-primary-700 font-medium hover:text-primary-800">Sign in</Link>
+          Already have an account? <Link to="/auth/login" className="text-primary-500 font-medium hover:text-primary-800">Sign in</Link>
         </p>
       </motion.div>
     </div>
@@ -238,9 +238,9 @@ export function ForgotPasswordPage() {
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 mb-6">
             <img src="/hamro-awas-icon.png" alt="Hamro Awas Icon" className="w-10 h-10 object-contain" />
-            <span className="text-2xl font-bold text-gray-900">Hamro <span className="text-primary-700">Awas</span></span>
+            <span className="text-2xl font-bold text-accent-900">Hamro <span className="text-primary-500">Awas</span></span>
           </Link>
-          <h1 className="text-2xl font-bold text-gray-900">Reset your password</h1>
+          <h1 className="text-2xl font-bold text-accent-900">Reset your password</h1>
           <p className="text-sm text-gray-500 mt-1">Enter your email and we'll send you a reset link</p>
         </div>
 
@@ -248,7 +248,7 @@ export function ForgotPasswordPage() {
           {submitted ? (
             <div className="text-center py-6">
               <span className="text-5xl mb-4 block">📧</span>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Check your email</h3>
+              <h3 className="text-lg font-semibold text-accent-900 mb-2">Check your email</h3>
               <p className="text-sm text-gray-500 mb-6">If an account exists with that email, we've sent password reset instructions.</p>
               <Link to="/auth/login" className="btn-primary">Back to Login</Link>
             </div>
@@ -264,7 +264,7 @@ export function ForgotPasswordPage() {
         </div>
 
         <p className="text-center text-sm text-gray-500 mt-6">
-          Remember your password? <Link to="/auth/login" className="text-primary-700 font-medium">Sign in</Link>
+          Remember your password? <Link to="/auth/login" className="text-primary-500 font-medium">Sign in</Link>
         </p>
       </motion.div>
     </div>

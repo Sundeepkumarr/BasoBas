@@ -67,8 +67,8 @@ export default function Header() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
               <img src="/hamro-awas-logo.png" alt="Hamro Awas" className="w-11 h-11 object-contain" />
-              <span className="text-xl font-bold text-gray-900 tracking-tight">
-                Hamro <span className="text-primary-700">Awas</span>
+              <span className="text-xl font-bold text-accent-900 tracking-tight">
+                Hamro <span className="text-primary-500">Awas</span>
               </span>
             </Link>
 
@@ -240,7 +240,7 @@ export default function Header() {
               <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
                 <Link to="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
                   <img src="/hamro-awas-logo.png" alt="Hamro Awas" className="w-8 h-8 object-contain" />
-                  <span className="font-bold text-gray-900">Hamro Awas</span>
+                  <span className="font-bold text-accent-900">Hamro Awas</span>
                 </Link>
                 <button onClick={() => setIsOpen(false)} className="p-2 rounded-xl hover:bg-gray-100">
                   <HiOutlineX className="w-5 h-5" />

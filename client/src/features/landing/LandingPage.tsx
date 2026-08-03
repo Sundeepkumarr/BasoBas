@@ -177,7 +177,7 @@ export default function LandingPage() {
       </section>
 
       {/* ============================== WHY CHOOSE US ============================== */}
-      <section className="section-padding bg-[linear-gradient(135deg,#1e3a8a_0%,#2563eb_50%,#3b82f6_100%)] text-white">
+      <section className="section-padding bg-gradient-dark text-white">
         <div className="container-custom">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold">Why Choose Hamro Awas?</h2>

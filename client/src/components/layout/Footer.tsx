@@ -36,7 +36,7 @@ export default function Footer() {
             <Link to="/" className="flex items-center gap-3 mb-4">
               <img src="/hamro-awas-logo.png" alt="Hamro Awas" className="w-10 h-10 object-contain" />
               <span className="text-2xl font-bold text-white">
-                Hamro <span className="text-primary-400">Awas</span>
+                Hamro <span className="text-primary-500">Awas</span>
               </span>
             </Link>
             <p className="text-sm text-gray-400 mb-6 leading-relaxed">
