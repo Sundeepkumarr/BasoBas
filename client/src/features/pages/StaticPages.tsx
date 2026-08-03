@@ -15,7 +15,7 @@ export function AboutPage() {
     <div className="min-h-screen bg-white pt-20">
       <section className="section-padding bg-gradient-hero text-white text-center">
         <div className="container-custom">
-          <motion.h1 initial={{ opacity:0,y:20 }} animate={{ opacity:1,y:0 }} className="text-4xl md:text-5xl font-bold mb-4">About Basobas</motion.h1>
+          <motion.h1 initial={{ opacity:0,y:20 }} animate={{ opacity:1,y:0 }} className="text-4xl md:text-5xl font-bold mb-4">About Hamro Awas</motion.h1>
           <motion.p initial={{ opacity:0,y:20 }} animate={{ opacity:1,y:0 }} transition={{ delay:0.1 }} className="text-xl text-white/85 max-w-2xl mx-auto">
             Organizing Nepal's unorganized real estate market through technology, trust, and transparency.
           </motion.p>
@@ -28,7 +28,7 @@ export function AboutPage() {
             <div>
               <h2 className="section-title mb-4">Our Mission</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Basobas was born from a simple observation: Nepal's real estate market is fragmented, opaque, and dominated by middlemen who add cost without adding value.
+                Hamro Awas was born from a simple observation: Nepal's real estate market is fragmented, opaque, and dominated by middlemen who add cost without adding value.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 We're building a digital platform that connects property owners directly with buyers and renters, eliminating unnecessary intermediaries while providing the verification, legal support, and documentation services that make transactions safe and transparent.
@@ -123,7 +123,7 @@ export function ContactPage() {
             </div>
             <div className="lg:col-span-2 space-y-6">
               {[
-                { icon: <HiOutlineMail className="w-6 h-6" />, label: 'Email', value: 'info@basobas.com' },
+                { icon: <HiOutlineMail className="w-6 h-6" />, label: 'Email', value: 'info@hamroawas.com' },
                 { icon: <HiOutlinePhone className="w-6 h-6" />, label: 'Phone', value: '+977 980-0000000' },
                 { icon: <HiOutlineLocationMarker className="w-6 h-6" />, label: 'Address', value: 'Kathmandu, Nepal' },
               ].map((c) => (
@@ -149,7 +149,7 @@ export function FAQPage() {
         <div className="container-custom max-w-3xl">
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Frequently Asked Questions</h1>
-            <p className="text-gray-500">Everything you need to know about Basobas</p>
+            <p className="text-gray-500">Everything you need to know about Hamro Awas</p>
           </div>
           <div className="space-y-3">
             {mockFAQs.map((faq) => (
@@ -306,7 +306,7 @@ export function PrivacyPage() {
         <section><h2 className="text-lg font-semibold text-gray-900 mb-2">Information We Collect</h2><p>We collect information you provide directly to us, including your name, email, phone number, and property preferences when you create an account or use our services.</p></section>
         <section><h2 className="text-lg font-semibold text-gray-900 mb-2">How We Use Your Information</h2><p>We use the information to provide, maintain, and improve our services, to communicate with you, and to personalize your property search experience.</p></section>
         <section><h2 className="text-lg font-semibold text-gray-900 mb-2">Data Security</h2><p>We implement industry-standard security measures to protect your personal information from unauthorized access, disclosure, alteration, and destruction.</p></section>
-        <section><h2 className="text-lg font-semibold text-gray-900 mb-2">Contact Us</h2><p>If you have questions about this Privacy Policy, please contact us at privacy@basobas.com.</p></section>
+        <section><h2 className="text-lg font-semibold text-gray-900 mb-2">Contact Us</h2><p>If you have questions about this Privacy Policy, please contact us at privacy@hamroawas.com.</p></section>
       </div>
     </div></div>
   );
@@ -318,10 +318,10 @@ export function TermsPage() {
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Terms of Service</h1>
       <p className="text-gray-600 text-sm mb-4">Last updated: July 2026</p>
       <div className="space-y-6 text-sm text-gray-600 leading-relaxed">
-        <section><h2 className="text-lg font-semibold text-gray-900 mb-2">Acceptance of Terms</h2><p>By accessing and using Basobas, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p></section>
+        <section><h2 className="text-lg font-semibold text-gray-900 mb-2">Acceptance of Terms</h2><p>By accessing and using Hamro Awas, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p></section>
         <section><h2 className="text-lg font-semibold text-gray-900 mb-2">Use of Service</h2><p>You may use our services only for lawful purposes and in accordance with these Terms. You agree not to use the service for any fraudulent or misleading activities.</p></section>
         <section><h2 className="text-lg font-semibold text-gray-900 mb-2">User Accounts</h2><p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p></section>
-        <section><h2 className="text-lg font-semibold text-gray-900 mb-2">Property Listings</h2><p>Property owners are responsible for the accuracy of their listings. Basobas reserves the right to remove any listing that violates our guidelines.</p></section>
+        <section><h2 className="text-lg font-semibold text-gray-900 mb-2">Property Listings</h2><p>Property owners are responsible for the accuracy of their listings. Hamro Awas reserves the right to remove any listing that violates our guidelines.</p></section>
       </div>
     </div></div>
   );
@@ -330,7 +330,7 @@ export function TermsPage() {
 // ==================== NOTIFICATIONS ====================
 export function NotificationsPage() {
   const [notifications, setNotifications] = useState([
-    { id:'1', title:'Welcome to Basobas!', message:'Start exploring properties.', type:'SYSTEM', isRead:false, createdAt:'2026-07-17T10:00:00Z' },
+    { id:'1', title:'Welcome to Hamro Awas!', message:'Start exploring properties.', type:'SYSTEM', isRead:false, createdAt:'2026-07-17T10:00:00Z' },
     { id:'2', title:'Property Verified', message:'Your property has been verified.', type:'VERIFICATION', isRead:false, createdAt:'2026-07-16T15:30:00Z' },
     { id:'3', title:'New Visit Request', message:'Hari Bahadur wants to visit your property.', type:'BOOKING', isRead:true, createdAt:'2026-07-15T09:00:00Z' },
     { id:'4', title:'Finance Approved', message:'Your finance request has been approved.', type:'FINANCE', isRead:true, createdAt:'2026-07-14T11:00:00Z' },

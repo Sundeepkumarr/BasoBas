@@ -33,11 +33,11 @@ async function main() {
   // ==========================================
   const admin = await prisma.user.create({
     data: {
-      email: 'admin@basobas.com',
+      email: 'admin@hamroawas.com',
       password: hashedPassword,
       role: 'ADMIN',
       isVerified: true,
-      profile: { create: { fullName: 'Basobas Admin' } },
+      profile: { create: { fullName: 'Hamro Awas Admin' } },
     },
   });
 
@@ -464,13 +464,13 @@ async function main() {
   // ==========================================
   await prisma.fAQ.createMany({
     data: [
-      { question: 'How does Basobas work?', answer: 'Basobas connects property owners directly with buyers and renters. We provide verification, documentation support, and legal assistance to ensure safe transactions.', category: 'General', order: 1 },
-      { question: 'Is Basobas free to use?', answer: 'Browsing and searching properties is completely free. We charge a small service fee only when a transaction is completed successfully.', category: 'General', order: 2 },
+      { question: 'How does Hamro Awas work?', answer: 'Hamro Awas connects property owners directly with buyers and renters. We provide verification, documentation support, and legal assistance to ensure safe transactions.', category: 'General', order: 1 },
+      { question: 'Is Hamro Awas free to use?', answer: 'Browsing and searching properties is completely free. We charge a small service fee only when a transaction is completed successfully.', category: 'General', order: 2 },
       { question: 'How are properties verified?', answer: 'Our team physically inspects properties and verifies all ownership documents before marking them as verified on the platform.', category: 'Verification', order: 3 },
       { question: 'Can I schedule a property visit?', answer: 'Yes! Simply click the "Book Visit" button on any property listing, choose your preferred date and time, and the owner will confirm your visit.', category: 'Visits', order: 4 },
       { question: 'What documents do I need to buy property?', answer: 'You will need citizenship documents, PAN number, and financial documents. Our team provides complete guidance on documentation requirements.', category: 'Legal', order: 5 },
       { question: 'How does the finance module work?', answer: 'Our finance module helps you calculate EMI, explore loan options, and connect with partner banks. You can estimate affordability before making a decision.', category: 'Finance', order: 6 },
-      { question: 'Is my data safe on Basobas?', answer: 'Absolutely. We use industry-standard encryption and security measures to protect your personal and financial information.', category: 'Security', order: 7 },
+      { question: 'Is my data safe on Hamro Awas?', answer: 'Absolutely. We use industry-standard encryption and security measures to protect your personal and financial information.', category: 'Security', order: 7 },
       { question: 'How can I list my property?', answer: 'Register as a property owner, complete your profile verification, and then use the "Add Property" feature from your dashboard to list your property.', category: 'Owners', order: 8 },
     ],
   });
@@ -539,7 +539,7 @@ async function main() {
   // Add notifications
   await prisma.notification.createMany({
     data: [
-      { userId: buyer.id, title: 'Welcome to Basobas!', message: 'Start exploring properties in your area.', type: 'SYSTEM' },
+      { userId: buyer.id, title: 'Welcome to Hamro Awas!', message: 'Start exploring properties in your area.', type: 'SYSTEM' },
       { userId: owner1.id, title: 'Property Verified', message: 'Your property "Luxurious 3BHK House" has been verified.', type: 'VERIFICATION' },
       { userId: owner1.id, title: 'New Visit Request', message: 'You have a new visit request for your property.', type: 'BOOKING' },
     ],

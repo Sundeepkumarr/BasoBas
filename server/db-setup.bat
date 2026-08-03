@@ -1,7 +1,7 @@
 @echo off
 echo.
 echo ========================================
-echo  Basobas Database Setup Script
+echo  Hamro Awas Database Setup Script
 echo ========================================
 echo.
 
@@ -16,8 +16,8 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo [1] Creating database 'basobas'...
-psql -U postgres -c "CREATE DATABASE basobas;" 2>nul
+echo [1] Creating database 'hamroawas'...
+psql -U postgres -c "CREATE DATABASE hamroawas;" 2>nul
 if %errorlevel% neq 0 (
     echo     Database may already exist - continuing...
 )

@@ -16,7 +16,7 @@ export const config = {
   databaseUrl: process.env.DATABASE_URL || '',
 
   // MongoDB
-  mongodbUri: process.env.MONGODB_URI || 'mongodb://localhost:27017/basobas',
+  mongodbUri: process.env.MONGODB_URI || 'mongodb://localhost:27017/hamroawas',
 
   // JWT
   jwt: {

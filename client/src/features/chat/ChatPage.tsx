@@ -5,7 +5,7 @@ import { HiOutlinePaperAirplane, HiOutlinePhotograph, HiOutlineSearch } from 're
 const mockChats = [
   { id: '1', name: 'Ramesh Shrestha', avatar: 'R', lastMessage: 'Yes, the property is still available.', time: '2m ago', unread: 2, online: true },
   { id: '2', name: 'Sita Gurung', avatar: 'S', lastMessage: 'Can we schedule a visit?', time: '1h ago', unread: 0, online: false },
-  { id: '3', name: 'Basobas Support', avatar: 'B', lastMessage: 'Your document has been verified.', time: '2h ago', unread: 1, online: true },
+  { id: '3', name: 'Hamro Awas Support', avatar: 'H', lastMessage: 'Your document has been verified.', time: '2h ago', unread: 1, online: true },
 ];
 
 const mockMessages = [

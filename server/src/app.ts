@@ -87,7 +87,7 @@ if (clientDistPath) {
 // ==========================================
 
 app.get('/api/health', (_req, res) => {
-  res.json({ success: true, message: 'Basobas API is running 🏠', timestamp: new Date().toISOString() });
+  res.json({ success: true, message: 'Hamro Awas API is running 🏠', timestamp: new Date().toISOString() });
 });
 
 app.use('/api/auth', authRoutes);
@@ -127,7 +127,7 @@ app.use(errorHandler);
 const start = async () => {
   try {
     app.listen(config.port, () => {
-      logger.info(`🚀 Basobas Server running on port ${config.port}`);
+      logger.info(`🚀 Hamro Awas Server running on port ${config.port}`);
       logger.info(`📍 Environment: ${config.env}`);
       logger.info(`🔗 API: http://localhost:${config.port}/api/health`);
     });

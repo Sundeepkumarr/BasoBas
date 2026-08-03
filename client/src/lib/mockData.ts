@@ -6,8 +6,8 @@ import { Property, PropertyCategory, PriceType, PropertyStatus, User, UserRole, 
 
 export const mockUsers: User[] = [
   {
-    id: '1', email: 'admin@basobas.com', role: UserRole.ADMIN, isVerified: true,
-    profile: { id: 'p1', fullName: 'Basobas Admin' }, createdAt: '2026-01-01',
+    id: '1', email: 'admin@hamroawas.com', role: UserRole.ADMIN, isVerified: true,
+    profile: { id: 'p1', fullName: 'Hamro Awas Admin' }, createdAt: '2026-01-01',
   },
   {
     id: '2', email: 'ramesh@example.com', phone: '+9779841000001', role: UserRole.OWNER, isVerified: true,
@@ -151,8 +151,8 @@ export const mockCategories: Category[] = [
 // ==========================================
 
 export const mockFAQs: FAQ[] = [
-  { id: '1', question: 'How does Basobas work?', answer: 'Basobas connects property owners directly with buyers and renters. We provide verification, documentation support, and legal assistance to ensure safe transactions. No middlemen involved.', category: 'General', order: 1 },
-  { id: '2', question: 'Is Basobas free to use?', answer: 'Browsing and searching properties is completely free. We charge a small service fee only when a transaction is completed successfully.', category: 'General', order: 2 },
+  { id: '1', question: 'How does Hamro Awas work?', answer: 'Hamro Awas connects property owners directly with buyers and renters. We provide verification, documentation support, and legal assistance to ensure safe transactions. No middlemen involved.', category: 'General', order: 1 },
+  { id: '2', question: 'Is Hamro Awas free to use?', answer: 'Browsing and searching properties is completely free. We charge a small service fee only when a transaction is completed successfully.', category: 'General', order: 2 },
   { id: '3', question: 'How are properties verified?', answer: 'Our team physically inspects properties and verifies all ownership documents before marking them as verified on the platform.', category: 'Verification', order: 3 },
   { id: '4', question: 'Can I schedule a property visit?', answer: 'Yes! Simply click the "Book Visit" button on any property listing, choose your preferred date and time, and the owner will confirm your visit.', category: 'Visits', order: 4 },
   { id: '5', question: 'What documents do I need to buy property?', answer: 'You will need citizenship documents, PAN number, and financial documents. Our team provides complete guidance.', category: 'Legal', order: 5 },
@@ -189,7 +189,7 @@ export const mockReviews: Review[] = [
 // ==========================================
 
 export const mockNotifications: Notification[] = [
-  { id: '1', title: 'Welcome to Basobas!', message: 'Start exploring properties in your area.', type: 'SYSTEM', isRead: false, createdAt: '2026-07-17T10:00:00Z' },
+  { id: '1', title: 'Welcome to Hamro Awas!', message: 'Start exploring properties in your area.', type: 'SYSTEM', isRead: false, createdAt: '2026-07-17T10:00:00Z' },
   { id: '2', title: 'Property Verified', message: 'Your property "Luxurious 3BHK House" has been verified.', type: 'VERIFICATION', isRead: false, createdAt: '2026-07-16T15:30:00Z' },
   { id: '3', title: 'New Visit Request', message: 'You have a new visit request for your property in Budhanilkantha.', type: 'BOOKING', isRead: true, createdAt: '2026-07-15T09:00:00Z' },
   { id: '4', title: 'Finance Update', message: 'Your finance request has been approved.', type: 'FINANCE', isRead: true, createdAt: '2026-07-14T11:00:00Z' },
@@ -228,9 +228,9 @@ export const mockBlogPosts: BlogPost[] = [
 // ==========================================
 
 export const mockTestimonials = [
-  { id: '1', name: 'Bikash Maharjan', role: 'Home Buyer', content: 'Basobas made finding my dream home incredibly easy. The verification process gave me complete confidence in my purchase.', rating: 5, location: 'Lalitpur' },
-  { id: '2', name: 'Anita Thapa', role: 'Property Owner', content: 'As a property owner, I love how Basobas helps me reach genuine buyers. The documentation support is excellent!', rating: 5, location: 'Kathmandu' },
-  { id: '3', name: 'Sunil Rai', role: 'Tenant', content: 'Found a perfect room near my university through Basobas. The process was smooth and transparent from start to finish.', rating: 4, location: 'Bhaktapur' },
+  { id: '1', name: 'Bikash Maharjan', role: 'Home Buyer', content: 'Hamro Awas made finding my dream home incredibly easy. The verification process gave me complete confidence in my purchase.', rating: 5, location: 'Lalitpur' },
+  { id: '2', name: 'Anita Thapa', role: 'Property Owner', content: 'As a property owner, I love how Hamro Awas helps me reach genuine buyers. The documentation support is excellent!', rating: 5, location: 'Kathmandu' },
+  { id: '3', name: 'Sunil Rai', role: 'Tenant', content: 'Found a perfect room near my university through Hamro Awas. The process was smooth and transparent from start to finish.', rating: 4, location: 'Bhaktapur' },
 ];
 
 // ==========================================

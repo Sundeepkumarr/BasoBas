@@ -151,7 +151,7 @@ export default function AddPropertyPage() {
             <HiOutlineChevronLeft className="w-4 h-4" /> Back
           </button>
           <h1 className="text-2xl font-bold text-gray-900">List Your Property</h1>
-          <p className="text-gray-500 text-sm mt-1">Fill in the details to list on Basobas</p>
+          <p className="text-gray-500 text-sm mt-1">Fill in the details to list on Hamro Awas</p>
         </div>
 
         {/* Step Indicator — scrollable on mobile */}

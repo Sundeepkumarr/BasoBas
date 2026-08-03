@@ -34,17 +34,17 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <img src="/basobas.png" alt="Basobas" className="w-10 h-10 object-contain" />
+              <img src="/hamro-awas-logo.png" alt="Hamro Awas" className="w-10 h-10 object-contain" />
               <span className="text-2xl font-bold text-white">
-                Baso<span className="text-primary-400">bas</span>
+                Hamro <span className="text-primary-400">Awas</span>
               </span>
             </Link>
             <p className="text-sm text-gray-400 mb-6 leading-relaxed">
               Nepal's trusted digital real estate marketplace. Connecting property owners directly with buyers and renters — no middlemen.
             </p>
             <div className="space-y-3">
-              <a href="mailto:info@basobas.com" className="flex items-center gap-2 text-sm text-gray-400 hover:text-primary-400 transition-colors">
-                <HiOutlineMail className="w-4 h-4" /> info@basobas.com
+              <a href="mailto:info@hamroawas.com" className="flex items-center gap-2 text-sm text-gray-400 hover:text-primary-400 transition-colors">
+                <HiOutlineMail className="w-4 h-4" /> info@hamroawas.com
               </a>
               <a href="tel:+9779800000000" className="flex items-center gap-2 text-sm text-gray-400 hover:text-primary-400 transition-colors">
                 <HiOutlinePhone className="w-4 h-4" /> +977 980-0000000
@@ -103,7 +103,7 @@ export default function Footer() {
       <div className="border-t border-gray-800">
         <div className="container-custom py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} Basobas. All rights reserved.
+            © {new Date().getFullYear()} Hamro Awas. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <a href="#" className="text-gray-500 hover:text-primary-400 transition-colors" aria-label="Facebook">

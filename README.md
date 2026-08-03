@@ -1,6 +1,6 @@
-# BasoBas
+# hamro-awas
 
-Basobas is a full-stack real estate marketplace with:
+hamro-awas is a full-stack real estate marketplace with:
 
 - Frontend: React + Vite (`client`)
 - Backend: Express + Prisma (`server`)
@@ -11,9 +11,9 @@ This repository includes a Render Blueprint file: `render.yaml`.
 
 ### What gets created
 
-- `basobas-api` (Node web service from `server`)
-- `basobas-client` (Static site from `client`)
-- `basobas-db` (Render Postgres database)
+- `hamro-awas-api` (Node web service from `server`)
+- `hamro-awas-client` (Static site from `client`)
+- `hamro-awas-db` (Render Postgres database)
 
 ### Deployment steps
 

@@ -1,5 +1,5 @@
 // ==========================================
-// Basobas Client TypeScript Types
+// Hamro Awas Client TypeScript Types
 // ==========================================
 
 export enum UserRole {

@@ -143,7 +143,7 @@ export default function LandingPage() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14">
-            <motion.h2 variants={fadeUp} className="section-title">How Basobas Works</motion.h2>
+            <motion.h2 variants={fadeUp} className="section-title">How Hamro Awas Works</motion.h2>
             <motion.p variants={fadeUp} custom={1} className="section-subtitle mx-auto mt-3">
               Simple, transparent, and hassle-free property transactions
             </motion.p>
@@ -180,7 +180,7 @@ export default function LandingPage() {
       <section className="section-padding bg-[linear-gradient(135deg,#1e3a8a_0%,#2563eb_50%,#3b82f6_100%)] text-white">
         <div className="container-custom">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold">Why Choose Basobas?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">Why Choose Hamro Awas?</h2>
             <p className="text-white/85 mt-3 max-w-xl mx-auto">
               We're not just a marketplace — we're your trusted partner in every step of your property journey.
             </p>
@@ -319,7 +319,7 @@ export default function LandingPage() {
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Ready to Find Your Perfect Property?</h2>
           <p className="text-slate-700 max-w-xl mx-auto mb-8">
-            Join thousands of satisfied customers who found their dream property through Basobas.
+            Join thousands of satisfied customers who found their dream property through Hamro Awas.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/properties" className="btn bg-white text-primary-700 hover:bg-gray-50 btn-lg font-semibold">

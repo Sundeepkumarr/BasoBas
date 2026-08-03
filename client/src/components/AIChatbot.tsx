@@ -25,7 +25,7 @@ const botResponses: Record<string, string> = {
 export default function AIChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { id: '0', sender: 'bot', content: 'Hi! 👋 I\'m Basobas AI Assistant. How can I help you today?' },
+    { id: '0', sender: 'bot', content: 'Hi! 👋 I\'m Hamro Awas AI Assistant. How can I help you today?' },
   ]);
   const [input, setInput] = useState('');
 
@@ -37,7 +37,7 @@ export default function AIChatbot() {
 
     // Simulate bot response
     setTimeout(() => {
-      const reply = botResponses[content.toLowerCase()] || 'Thank you for your question! Our team will get back to you shortly. You can also reach us at info@basobas.com or call +977 980-0000000.';
+      const reply = botResponses[content.toLowerCase()] || 'Thank you for your question! Our team will get back to you shortly. You can also reach us at info@hamroawas.com or call +977 980-0000000.';
       setMessages((prev) => [...prev, { id: (Date.now() + 1).toString(), sender: 'bot', content: reply }]);
     }, 800);
   };
@@ -76,7 +76,7 @@ export default function AIChatbot() {
                   <span className="text-white text-lg">🤖</span>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white">Basobas AI</p>
+                  <p className="text-sm font-semibold text-white">Hamro Awas AI</p>
                   <p className="text-[10px] text-white/70">Always here to help</p>
                 </div>
               </div>

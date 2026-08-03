@@ -53,10 +53,8 @@ export function LoginPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center">
-              <span className="text-white font-bold text-xl">B</span>
-            </div>
-            <span className="text-2xl font-bold text-gray-900">Baso<span className="text-primary-700">bas</span></span>
+            <img src="/hamro-awas-icon.png" alt="Hamro Awas Icon" className="w-10 h-10 object-contain" />
+            <span className="text-2xl font-bold text-gray-900">Hamro <span className="text-primary-700">Awas</span></span>
           </Link>
           <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>
           <p className="text-sm text-gray-500 mt-1">Sign in to your account to continue</p>
@@ -154,13 +152,11 @@ export function RegisterPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center">
-              <span className="text-white font-bold text-xl">B</span>
-            </div>
-            <span className="text-2xl font-bold text-gray-900">Baso<span className="text-primary-700">bas</span></span>
+            <img src="/hamro-awas-icon.png" alt="Hamro Awas Icon" className="w-10 h-10 object-contain" />
+            <span className="text-2xl font-bold text-gray-900">Hamro <span className="text-primary-700">Awas</span></span>
           </Link>
           <h1 className="text-2xl font-bold text-gray-900">Create your account</h1>
-          <p className="text-sm text-gray-500 mt-1">Join Basobas and find your dream property</p>
+          <p className="text-sm text-gray-500 mt-1">Join Hamro Awas and find your dream property</p>
         </div>
 
         <div className="card p-8">
@@ -241,10 +237,8 @@ export function ForgotPasswordPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center">
-              <span className="text-white font-bold text-xl">B</span>
-            </div>
-            <span className="text-2xl font-bold text-gray-900">Baso<span className="text-primary-700">bas</span></span>
+            <img src="/hamro-awas-icon.png" alt="Hamro Awas Icon" className="w-10 h-10 object-contain" />
+            <span className="text-2xl font-bold text-gray-900">Hamro <span className="text-primary-700">Awas</span></span>
           </Link>
           <h1 className="text-2xl font-bold text-gray-900">Reset your password</h1>
           <p className="text-sm text-gray-500 mt-1">Enter your email and we'll send you a reset link</p>

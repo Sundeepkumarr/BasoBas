@@ -1,4 +1,4 @@
-// Prisma Schema for Basobas Real Estate Marketplace
+// Prisma Schema for Hamro Awas Real Estate Marketplace
 // MongoDB as Primary Database
 
 generator client {

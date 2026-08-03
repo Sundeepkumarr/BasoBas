@@ -1,5 +1,5 @@
 // ==========================================
-// Basobas — Shared TypeScript Types
+// Hamro Awas — Shared TypeScript Types
 // ==========================================
 
 export enum UserRole {
